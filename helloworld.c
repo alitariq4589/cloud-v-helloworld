@@ -2,8 +2,3 @@
 int main (){ 
 	printf("Hello World just main!\n");  
 }
-
- 
-
-
-
