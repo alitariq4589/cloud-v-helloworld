@@ -1,4 +1,4 @@
-node('hifive_unleashed'){
+node('unleashed1-1'){
     checkout scm //Getting content of this repo
     stage('*** Compilation Phase ***') { // for display purposes
         //Compiling helloworld.c using bash commands
