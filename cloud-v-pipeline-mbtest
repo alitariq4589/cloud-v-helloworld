@@ -8,6 +8,7 @@ node {
     }
     stage (' *** Running Binaries ***'){
         sh '''#!/bin/bash
+            set +e
             ./helloworld.out
          ''' 
     } 
