@@ -1,11 +1,5 @@
-node('unleashed1-1'){
-        // Get some code from a GitHub repository
-        // Get some code from a GitHub repository
-    stage('*** Check out SCM ***') { 
-        dir('llvm-project') {
-            git branch: 'main', url: 'https://github.com/llvm/llvm-project.git', timeout: 300
-        }
-    }
+node {
+    checkout scm //Getting content of this repo
     stage('*** Compilation Phase ***') { // for display purposes
         //Compiling helloworld.c using bash commands
         sh '''#!/bin/bash
@@ -14,6 +8,7 @@ node('unleashed1-1'){
     }
     stage (' *** Running Binaries ***'){
         sh '''#!/bin/bash
+            set +e
             ./helloworld.out
          ''' 
     } 
