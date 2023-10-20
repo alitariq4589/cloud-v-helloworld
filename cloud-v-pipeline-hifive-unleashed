@@ -1,10 +1,11 @@
 node('unleashed1-1'){
         // Get some code from a GitHub repository
         // Get some code from a GitHub repository
-    checkout([$class: 'GitSCM',
-        gitTool: 'Default',
-        userRemoteConfigs: [[url: 'https://github.com/LimeSurvey/LimeSurvey.git']]
-    ])
+    stage('*** Check out SCM ***') { 
+        dir('llvm-project') {
+            git branch: 'main', url: 'https://github.com/llvm/llvm-project.git', timeout: 300
+        }
+    }
     stage('*** Compilation Phase ***') { // for display purposes
         //Compiling helloworld.c using bash commands
         sh '''#!/bin/bash
